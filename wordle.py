@@ -88,10 +88,11 @@ class Wordle(Tk):
                 self.labels = self.labels[self.counter:]
                 self.counter = 0
                 self.can_input = True
-                self.entered_word = ""
 
                 if not self.playerWin() and self.outOfTries():
                     self.quitOrRestart("lost")
+
+                self.entered_word = ""
 
     def letterCommand(self, letter: str) -> None:
         if self.can_input:
@@ -125,7 +126,6 @@ class Wordle(Tk):
                                                       f"Do you want to play again?")
         if answer:
             self.restartGame()
-            print(self.word_to_guess)
         else:
             self.quitGame()
 
